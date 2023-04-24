@@ -1,0 +1,71 @@
+﻿@model IEnumerable<stages.Models.Propositionsstage>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sujetpropose)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dateproposition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remuneration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConNoconventionNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoconventionNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoentrepriseNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sujetpropose)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dateproposition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duree)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remuneration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConNoconventionNavigation.Noconvention)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoconventionNavigation.Noconvention)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoentrepriseNavigation.Noentreprise)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Noproposition">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Noproposition">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Noproposition">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<stages.Models.Etudiant>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nometudiant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenometudiant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConNoconventionNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoconventionNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nometudiant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenometudiant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConNoconventionNavigation.Noconvention)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoconventionNavigation.Noconvention)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idfetudiant">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idfetudiant">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idfetudiant">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

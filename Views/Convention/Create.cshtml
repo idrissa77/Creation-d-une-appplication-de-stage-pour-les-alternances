@@ -1,0 +1,73 @@
+﻿@model stages.Models.Convention
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Convention</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Noconvention" class="control-label"></label>
+                <input asp-for="Noconvention" class="form-control" />
+                <span asp-validation-for="Noconvention" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Idfenseignant" class="control-label"></label>
+                <select asp-for="Idfenseignant" class ="form-control" asp-items="ViewBag.Idfenseignant"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Idfetudiant" class="control-label"></label>
+                <select asp-for="Idfetudiant" class ="form-control" asp-items="ViewBag.Idfetudiant"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="EtuIdfetudiant" class="control-label"></label>
+                <select asp-for="EtuIdfetudiant" class ="form-control" asp-items="ViewBag.EtuIdfetudiant"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Noproposition" class="control-label"></label>
+                <select asp-for="Noproposition" class ="form-control" asp-items="ViewBag.Noproposition"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProNoproposition" class="control-label"></label>
+                <select asp-for="ProNoproposition" class ="form-control" asp-items="ViewBag.ProNoproposition"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sujetmemoire" class="control-label"></label>
+                <input asp-for="Sujetmemoire" class="form-control" />
+                <span asp-validation-for="Sujetmemoire" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Datedebut" class="control-label"></label>
+                <input asp-for="Datedebut" class="form-control" />
+                <span asp-validation-for="Datedebut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salaire" class="control-label"></label>
+                <input asp-for="Salaire" class="form-control" />
+                <span asp-validation-for="Salaire" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Datesignature" class="control-label"></label>
+                <input asp-for="Datesignature" class="form-control" />
+                <span asp-validation-for="Datesignature" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
